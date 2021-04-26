@@ -30,12 +30,12 @@
     
 ?>
 <div class="row">
-    <div class="col">
+<div class="p-4">
         <form method="post">
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder=<?php echo t('search'); ?> name="search" value="<?php echo isset($search) ? $search : ""; ?>">
-                <div class="input-group-prepend">
-                    <button type="submit" class="btn btn-success"><?php echo t('search'); ?></button>
+            <div class="bg-white flex items-center rounded-full shadow-xl">
+                <input type="text" class="bg-white flex items-center rounded-full shadow-xlrounded-l-full w-full py-4 px-6 text-gray-700 leading-tight focus:outline-none" placeholder=<?php echo t('search'); ?> name="search" value="<?php echo isset($search) ? $search : ""; ?>">
+                <div class="p-4">
+                    <button type="submit" class="bg-red-100 rounded-full p-2 hover:bg-red-100 focus:outline-none w-12 h-12 flex items-center justify-center"><?php echo t('search'); ?></button>
                 </div>
             </div>
         </form>
