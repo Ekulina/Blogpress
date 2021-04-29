@@ -1,4 +1,4 @@
 # Blogpress
 
 Programmerimise kodutöö.
-Link:
+Link: https://blogpress.ta18pupart.itmajakas.ee/
