@@ -73,35 +73,38 @@ echo empty($errors)
     : '<div class="alert alert-danger"><ul><li>' . join("</li><li>", $errors) . '</li></ul></div>';
 
 ?>
+<div class= "w-full flex items-center justify-center">
+<div class= "w-72">
+<h1 class= "text-xl pb-4 font-bold">Edit User</h1>
 
-<form id="mainForm" method="post">
+<form method="post"enctype="multipart/form-data">
 
     <div class="form-group">
-        <label for="email"><?php t('emailaddress');?></label>
+        <label class="text-xl text-gray-600" for="email"><?php t('emailaddress');?></label>
         <input
             type="email"
-            class="form-control"
+            class="border-2 border-gray-300 p-2 w-full"
             id="email" name="email"
             value="<?php echo is_object($oUser) ? $oUser->email : ""; ?>"
         >
     </div>
     <div class="form-group">
-        <label for="password"><?php t('password');?></label>
+        <label class="text-xl text-gray-600" for="password"><?php t('password');?></label>
         <input
             type="password"
-            class="form-control"
+            class="border-2 border-gray-300 p-2 w-full"
             id="password"
             name="password"
         >
     </div>
 
     <input type="hidden" name='action' id='action' value="update">
-    <button type="submit" name="action" value="update" class="btn btn-success"><?php t('edit');?></button>
+    <button type="submit" name="action" value="update" class="p-1 bg-blue-100 text-blue-500 rounded"><?php t('edit');?></button>
 </form>
 
 <form id="roleForm" method="post" class="mt-2">
-    <div class="form-group">
-        <label for="userrole"><?php t('userrole');?></label>
+        <label class="text-xl text-gray-600" for="userrole"><?php t('userrole');?></label>
+    <div class="border-2 border-gray-300 p-2 w-full">
         <select name="userrole" id="userrole">
             <option value="user" <?php if ($oUser->role == 'user') { echo "selected"; }?>><?php t('user');?></option>
             <option value="moderator" <?php if ($oUser->role == 'moderator') { echo "selected"; }?>><?php t('moderator');?></option>
@@ -109,11 +112,11 @@ echo empty($errors)
         </select>
     </div>
     <input type="hidden" name='action' id='action' value="role-update">
-    <button type="submit" name="action" value="role-update" class="btn btn-success"><?php t('role_update');?></button>
+    <button type="submit" name="action" value="role-update" class="p-1 bg-blue-100 text-blue-500 rounded sm-5"><?php t('role_update');?></button>
 </form>
 
 <form id="deleteForm" method="post" class="mt-2">
         <input type="hidden" name='id' id='id' value="<?php echo $user->id;?>">
         <input type="hidden" name='action' id='action' value="delete">
-        <button type="submit" name="action" value="delete" class="btn btn-danger"><?php t('delete');?></button>
+        <button type="submit" name="action" value="delete" class="p-1 bg-red-100 text-red-500 rounded"><?php t('delete');?></button>
 </form>

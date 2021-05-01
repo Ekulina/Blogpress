@@ -83,8 +83,8 @@ if (!empty($posts)) : foreach ($posts as $post) { ?>
         <td class="py-3 px-6 text-left whitespace-nowrap"><?php echo strLimit($post->body, 30); ?></td>
         <td class="py-3 px-6 text-left whitespace-nowrap"><?php echo $post->added; ?></td>
         <td class="py-3 px-6 text-left whitespace-nowrap"><?php echo $post->edited; ?></td>
-        <td>
-            <a class="btn btn-success" href="<?php 
+        <td class="py-3 px-6 text-center">
+            <a class="p-1 bg-blue-100 text-blue-500 rounded" href="<?php 
                 if ($_SERVER['REQUEST_URI'] == DIRECTORY_SEPARATOR . "posts") {
                     echo "posts" . DIRECTORY_SEPARATOR . "edit" . DIRECTORY_SEPARATOR . $post->id;
                 } else {
@@ -92,11 +92,11 @@ if (!empty($posts)) : foreach ($posts as $post) { ?>
                 }
             ?>"><?php t('edit');?></a>
         </td>
-        <td>
+        <td class="py-3 px-6 text-center">
             <form id="deleteForm" method="post">
                 <input type="hidden" name='id' id='id' value="<?php echo $post->id;?>">
                 <input type="hidden" name='action' id='action' value="delete">
-                <button type="submit" name="action" value="delete" class="btn btn-danger"><?php t('delete');?></button>
+                <button class="p-1 bg-red-100 text-red-500 rounded" type="submit" name="action" value="delete" class="btn btn-danger"><?php t('delete');?></button>
             </form>
         </td>
     </tr>
