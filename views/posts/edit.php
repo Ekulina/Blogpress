@@ -38,7 +38,7 @@ echo message($message, 'danger');
 ?>
 <div class= "w-full flex items-center justify-center">
 <div class= "w-72">
-<h1 class= "text-xl pb-4 font-bold">Add Post</h1>
+<h1 class= "text-xl pb-4 font-bold">Edit Post</h1>
 
 <form method="post" enctype="multipart/form-data">
 
@@ -57,8 +57,8 @@ echo message($message, 'danger');
     </div>
 
     <br>
-    <button class="bg-gray-500 hover:bg-gray-600 text-white font-bold w-full py-3 pb-4" type="submit" name="action" value="update">Update</button>
-    <button class="bg-red-500 hover:bg-red-600 text-white font-bold w-full py-3 pb-4" type="submit" name="action" value="delete">Delete</button>
+    <button class="p-3 bg-blue-100 text-blue-500 rounded font-bold w-full" type="submit" name="action" value="update">Update</button>
+    <button class="p-3 bg-red-100 text-red-500 rounded w-full font-bold mt-3" type="submit" name="action" value="delete">Delete</button>
 </form>
 </div>
 </div>

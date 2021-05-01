@@ -77,7 +77,7 @@ if (!empty($users)) : foreach ($users as $user) {
         <td class="py-3 px-6 text-left whitespace-nowrap"><?php echo $user->added; ?></td>
         <td class="py-3 px-6 text-left whitespace-nowrap"><?php echo $user->edited; ?></td>
         <td class="py-3 px-6 text-left whitespace-nowrap">
-            <a class="p-1 bg-blue-100 text-blue-500 rounded" href="<?php 
+            <a class="p-1 bg-blue-100 text-blue-500 rounded font-bold" href="<?php 
                 if ($_SERVER['REQUEST_URI'] == DIRECTORY_SEPARATOR . "users") {
                     echo "users" . DIRECTORY_SEPARATOR . "edit" . DIRECTORY_SEPARATOR . $user->id;
                 } else {
@@ -89,7 +89,7 @@ if (!empty($users)) : foreach ($users as $user) {
             <form id="deleteForm" method="post">
                 <input type="hidden" name='action' id='action' value="delete">
                 <input type="hidden" name='id' id='id' value="<?php echo $user->id;?>">
-                <button class="p-1 bg-red-100 text-red-500 rounded" type="submit" name="action" value="delete" class="btn btn-danger"><?php t('delete');?></button>
+                <button class="p-1 bg-red-100 text-red-500 rounded font-bold" type="submit" name="action" value="delete" class="btn btn-danger"><?php t('delete');?></button>
             </form>
         </td>
     </tr>

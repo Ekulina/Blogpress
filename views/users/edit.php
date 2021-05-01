@@ -99,7 +99,7 @@ echo empty($errors)
     </div>
 
     <input type="hidden" name='action' id='action' value="update">
-    <button type="submit" name="action" value="update" class="p-1 bg-blue-100 text-blue-500 rounded"><?php t('edit');?></button>
+    <button type="submit" name="action" value="update" class="p-3 bg-blue-100 text-blue-500 rounded font-bold w-full mt-3"><?php t('edit');?></button>
 </form>
 
 <form id="roleForm" method="post" class="mt-2">
@@ -112,11 +112,11 @@ echo empty($errors)
         </select>
     </div>
     <input type="hidden" name='action' id='action' value="role-update">
-    <button type="submit" name="action" value="role-update" class="p-1 bg-blue-100 text-blue-500 rounded sm-5"><?php t('role_update');?></button>
+    <button type="submit" name="action" value="role-update" class="p-3 bg-blue-100 text-blue-500 rounded font-bold w-full mt-3"><?php t('role_update');?></button>
 </form>
 
 <form id="deleteForm" method="post" class="mt-2">
         <input type="hidden" name='id' id='id' value="<?php echo $user->id;?>">
         <input type="hidden" name='action' id='action' value="delete">
-        <button type="submit" name="action" value="delete" class="p-1 bg-red-100 text-red-500 rounded"><?php t('delete');?></button>
+        <button type="submit" name="action" value="delete" class="p-3 bg-red-100 text-red-500 rounded w-full font-bold"><?php t('delete');?></button>
 </form>
