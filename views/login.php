@@ -13,11 +13,11 @@ if (isset($action) && $action === 'login') {
     $errors = [];
 
     if (empty($email)) {
-        array_push($errors, t('email_empty', true));
+        $errors['email'] = t('email_empty', true);
     }
 
     if (empty($password)) {
-        array_push($errors, t('password_empty', true));
+        $errors['password_empty'] = t('password_empty', true);
     }
 
     if (empty($errors)) {
@@ -33,12 +33,12 @@ if (isset($action) && $action === 'login') {
                 redirect('/');
             }
         }
-        array_push($errors, t('username_password_mismatch', true));
+        echo message (t('username_password_mismatch'), true);
     }
 }
 echo empty($errors)
     ? ""
-    : '<div class="alert alert-danger"><ul><li>' . join("</li><li>", $errors) . '</li></ul></div>';
+    : '<div class="p-1 bg-white text-red-500 rounded font-bold text-center"><ul><li>' . join("</li><li>", $errors) . '</li></ul></div>';
 ?>
 <div class= "items-center justify-center flex w-full">
 <div class="bg-red-100 rounded py-16 px-12 m-16 flex flex-col items-center justify-center w-80">

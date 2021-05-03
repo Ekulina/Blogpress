@@ -30,7 +30,7 @@ checkAccess($p);
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <title>Blogpress</title>
 </head>
-<nav class="flex items-center justify-between flex-wrap bg-red-100 p-4">
+<nav class="flex items-center justify-between flex-wrap bg-red-100 p-4 text-center sm:text-left">
   <div class="flex items-center flex-shrink-0 mr-6">
     <span class="font-semibold text-3xl tracking-tight">Blogpress</span>
   </div>
