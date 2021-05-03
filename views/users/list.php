@@ -96,7 +96,7 @@ if (!empty($users)) : foreach ($users as $user) {
     <?php } ?>
 <?php else: ?>
     <div class="col">
-        <div class="alert alert-info">
+        <div class="p-1 bg-white text-red-500 rounded font-bold text-center">
             <?php echo isset($search) || isset($tooShort) ? t('error_search_too_short') : t('error_no_posts'); ?></div>
     </div>
 <?php endif; ?>

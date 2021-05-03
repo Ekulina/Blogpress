@@ -56,7 +56,7 @@ if (isset($action) && $action === 'save') {
 }
 echo empty($errors)
     ? ""
-    : '<div class="alert alert-danger"><ul><li>' . join("</li><li>", $errors) . '</li></ul></div>';
+    : '<div class="p-1 bg-white text-red-500 rounded font-bold text-center"><ul><li>' . join("</li><li>", $errors) . '</li></ul></div>';
 ?>
 <div class= "w-full flex items-center justify-center">
 <div class= "w-72">

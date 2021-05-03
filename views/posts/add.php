@@ -6,13 +6,15 @@ $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
 if (isset($action) && $action === 'save') {
     
     $errors = [];
-    
+
+    if (!empty(Post::findByTitle($title['title']['en']))) {
+        $errors['post_exists'] = t('post_exists', true);
+    }
 
 
     if (empty($title)) {
-        $errors['title'] = 'error_title_is_empty';
+        $errors['title'] = t('error_title_empty', true);
     }
-
 
 
     if (empty($errors)) {
@@ -42,10 +44,10 @@ if (isset($action) && $action === 'save') {
 
     }
 }
-print_r($errors);
+
 echo empty($errors)
     ? ""
-    : '<div class="alert alert-danger"><ul><li>' . join("</li><li>", $errors) . '</li></ul></div>';
+    : '<div class="p-1 bg-white text-red-500 rounded font-bold text-center"><ul><li>' . join("</li><li>", $errors) . '</li></ul></div>';
 ?>
 <div class= "w-full flex items-center justify-center">
 <div class= "w-72">

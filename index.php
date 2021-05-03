@@ -45,14 +45,14 @@ checkAccess($p);
       </a>
       <?php if (isLoggedIn()) : ?>
                     <?php if ($_SESSION['role'] === 'admin') : ?>
-      <a href="/users/list/" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+      <a href="/users/" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
       <?php t('users'); ?>
       </a>
       <a href="/users/add/" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
       <?php t('add_user'); ?>
       </a>
       <?php endif; ?>
-      <a href="/posts/list/" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
+      <a href="/posts/" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
       <?php t('posts'); ?>
       </a>
       <a href="/posts/add/" class="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4">
