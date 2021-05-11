@@ -96,7 +96,7 @@ if (!empty($posts)) : foreach ($posts as $post) { ?>
             <form id="deleteForm" method="post">
                 <input type="hidden" name='id' id='id' value="<?php echo $post->id;?>">
                 <input type="hidden" name='action' id='action' value="delete">
-                <button class="p-1 bg-red-100 text-red-500 rounded font-bold" type="submit" name="action" value="delete" class="btn btn-danger"><?php t('delete');?></button>
+                <button class="p-1 bg-red-100 text-red-500 rounded font-bold" type="submit" name="action" value="delete" class="p-1 bg-white text-red-500 rounded font-bold text-center"><?php t('delete');?></button>
             </form>
         </td>
     </tr>
