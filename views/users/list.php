@@ -42,65 +42,67 @@
     </div>
 </div>
 <br>
-<table class="min-w-max w-full table-auto">
-    <thead>
-        <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal text-justify">
-            <th class="py-3 px-6 text-left"><?php t('email');?></th>
-            <th class="py-3 px-6 text-left"><?php t('added');?></th>
-            <th class="py-3 px-6 text-left"><?php t('edited');?></th>
-            <th class="py-3 px-6 text-left"><?php t('edit_user');?></th>
-            <th class="py-3 px-6 text-left"><?php t('delete_user');?></th>
-        </tr>
-    </thead>
-    <?php
+<div class="overflow-x-auto">
+    <table class="min-w-max w-full table-auto">
+        <thead>
+            <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal text-justify">
+                <th class="py-3 px-6 text-left"><?php t('email');?></th>
+                <th class="py-3 px-6 text-left"><?php t('added');?></th>
+                <th class="py-3 px-6 text-left"><?php t('edited');?></th>
+                <th class="py-3 px-6 text-left"><?php t('edit_user');?></th>
+                <th class="py-3 px-6 text-left"><?php t('delete_user');?></th>
+            </tr>
+        </thead>
+        <?php
 
-$action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
-$id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+    $action = filter_input(INPUT_POST, 'action', FILTER_SANITIZE_STRING);
+    $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
 
-$oUser = User::findById ($id);
+    $oUser = User::findById ($id);
 
-if (isset($action) && $action === 'delete') {
-    USER::delete($oUser);
-    redirect('/users');
-}
-
-if (!empty($users)) : foreach ($users as $user) { 
-    
-    if ($user->id == $_SESSION['user_id']) {
-        continue;
+    if (isset($action) && $action === 'delete') {
+        USER::delete($oUser);
+        redirect('/users');
     }
-    
-    ?>
-    <tbody class="text-gray-600 text-sm font-light">
-    <tr class="border-b border-gray-200 hover:bg-gray-100 text-justify">
-        <td class="py-3 px-6 text-left whitespace-nowrap"><?php echo $user->email; ?></td>
-        <td class="py-3 px-6 text-left whitespace-nowrap"><?php echo $user->added; ?></td>
-        <td class="py-3 px-6 text-left whitespace-nowrap"><?php echo $user->edited; ?></td>
-        <td class="py-3 px-6 text-left whitespace-nowrap">
-            <a class="p-1 bg-blue-100 text-blue-500 rounded font-bold" href="<?php 
-                if ($_SERVER['REQUEST_URI'] == DIRECTORY_SEPARATOR . "users") {
-                    echo "users" . DIRECTORY_SEPARATOR . "edit" . DIRECTORY_SEPARATOR . $user->id;
-                } else {
-                    echo "edit" . DIRECTORY_SEPARATOR . $user->id;
-                }
-            ?>"><?php t('edit');?></a>
-        </td>
-        <td>
-            <form id="deleteForm" method="post">
-                <input type="hidden" name='action' id='action' value="delete">
-                <input type="hidden" name='id' id='id' value="<?php echo $user->id;?>">
-                <button class="p-1 bg-red-100 text-red-500 rounded font-bold" type="submit" name="action" value="delete" class="btn btn-danger"><?php t('delete');?></button>
-            </form>
-        </td>
-    </tr>
-    <?php } ?>
-<?php else: ?>
-    <div class="col">
-        <div class="p-1 bg-white text-red-500 rounded font-bold text-center">
-            <?php echo isset($search) || isset($tooShort) ? t('error_search_too_short') : t('error_no_posts'); ?></div>
-    </div>
-<?php endif; ?>
-</table>
+
+    if (!empty($users)) : foreach ($users as $user) { 
+        
+        if ($user->id == $_SESSION['user_id']) {
+            continue;
+        }
+        
+        ?>
+        <tbody class="text-gray-600 text-sm font-light">
+        <tr class="border-b border-gray-200 hover:bg-gray-100 text-justify">
+            <td class="py-3 px-6 text-left whitespace-nowrap"><?php echo $user->email; ?></td>
+            <td class="py-3 px-6 text-left whitespace-nowrap"><?php echo $user->added; ?></td>
+            <td class="py-3 px-6 text-left whitespace-nowrap"><?php echo $user->edited; ?></td>
+            <td class="py-3 px-6 text-left whitespace-nowrap">
+                <a class="p-1 bg-blue-100 text-blue-500 rounded font-bold" href="<?php 
+                    if ($_SERVER['REQUEST_URI'] == DIRECTORY_SEPARATOR . "users") {
+                        echo "users" . DIRECTORY_SEPARATOR . "edit" . DIRECTORY_SEPARATOR . $user->id;
+                    } else {
+                        echo "edit" . DIRECTORY_SEPARATOR . $user->id;
+                    }
+                ?>"><?php t('edit');?></a>
+            </td>
+            <td>
+                <form id="deleteForm" method="post">
+                    <input type="hidden" name='action' id='action' value="delete">
+                    <input type="hidden" name='id' id='id' value="<?php echo $user->id;?>">
+                    <button class="p-1 bg-red-100 text-red-500 rounded font-bold" type="submit" name="action" value="delete" class="btn btn-danger"><?php t('delete');?></button>
+                </form>
+            </td>
+        </tr>
+        <?php } ?>
+    <?php else: ?>
+        <div class="col">
+            <div class="p-1 bg-white text-red-500 rounded font-bold text-center">
+                <?php echo isset($search) || isset($tooShort) ? t('error_search_too_short') : t('error_no_posts'); ?></div>
+        </div>
+    <?php endif; ?>
+    </table>
+</div>
 
 <div class="flex items-center justify-center">
 
