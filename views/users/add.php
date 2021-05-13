@@ -62,7 +62,7 @@ echo empty($errors)
 <div class= "w-72">
 <h1 class= "text-xl pb-4 font-bold">Add User</h1>
 
-<form method="post"enctype="multipart/form-data">
+<form method="post" enctype="multipart/form-data" novalidate>
 
     <div class="form-group">
         <label class="text-xl text-gray-600" for="email"><?php t('emailaddress');?></label>

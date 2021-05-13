@@ -7,13 +7,15 @@ if (isset($action) && $action === 'save') {
     
     $errors = [];
 
-    if (!empty(Post::findByTitle($title['title']['en']))) {
-        $errors['post_exists'] = t('post_exists', true);
-    }
+
 
 
     if (empty($title)) {
         $errors['title'] = t('error_title_empty', true);
+    } else {
+        if (!empty(Post::findByTitle($title['title']['en']))) {
+            $errors['post_exists'] = t('post_exists', true);
+        }
     }
 
 
