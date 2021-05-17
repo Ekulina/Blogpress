@@ -46,9 +46,12 @@ if (isset($action) && $action === 'save') {
         $result = User::save($user);
 
         if ($result['status']) {
-            $_SESSION['alert'] = t('user_add');
+           $user->id = $result['id']; 
+           $_SESSION['alert']['message'] = t('user_add');
+           $_SESSION['alert']['action'];
             redirect('/users');
         } else {
+            echo $result['message'];
             echo message(t('problem_creating_user'), 'danger');
         }
 

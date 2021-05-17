@@ -26,8 +26,11 @@ if (isset($action) && $action === 'role-update') {
     $result = User::save($user);
 
     if ($result['status']) {
-        $_SESSION['alert'] = t('role_edit', true);
+        $_SESSION['alert']['message'] = t('role_edit', true);
+        $_SESSION['alert']['action'];
+        
         redirect('/users');
+
     } else {
         $message = $result['message'];
     }
@@ -56,15 +59,20 @@ if (isset($action) && $action === 'update') {
         $result = User::save($user);
 
         if ($result['status']) {
-            $_SESSION['alert'] = t('user_edit', true);
+            $_SESSION['alert']['message'] = t('user_edit', true);
+            $_SESSION['alert']['action'] = 'success';
+
             redirect('/users');
+
         } else {
             $message = $result['message'];
         }
     }
 } elseif (isset($action) && $action === 'delete') {
     USER::delete($oUser);
-    $_SESSION['alert'] = t('user_delete', true);
+    $_SESSION['alert']['message'] = t('user_delete', true);
+    $_SESSION['alert']['action'] = 'success';
+
     redirect('/users');
 }
 

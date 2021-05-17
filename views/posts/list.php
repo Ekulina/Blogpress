@@ -1,12 +1,4 @@
 <?php
-    
-    if (isset($_SESSION["alert"])) {
-        echo "
-        <script>
-            bootbox.alert('" . $_SESSION["alert"] . "');
-        </script>";
-        unset($_SESSION["alert"]);
-    }
 
     $currentPage = $ID;
 
@@ -69,14 +61,12 @@
 
     if (isset($action) && $action === 'delete') {
         POST::delete($oPost, true);
-        $bodyTranslations = Translation::findForModel('Post', $oPost->id, 'body', 'et');
-        $titleTranslations = Translation::findForModel('Post', $oPost->id, 'title', 'et');
-        Translation::delete($bodyTranslations[0]);
-        Translation::delete($titleTranslations[0]);
         redirect('/posts');
     }
 
-    if (!empty($posts)) : foreach ($posts as $post) { ?>
+    if (!empty($posts)) : foreach ($posts as $post) { 
+        
+    ?>
     <tbody class="text-gray-600 text-sm font-light">
     <tr class="border-b border-gray-200 hover:bg-gray-100 text-justify">
 

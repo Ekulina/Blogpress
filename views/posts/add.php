@@ -13,7 +13,7 @@ if (isset($action) && $action === 'save') {
     if (empty($title)) {
         $errors['title'] = t('error_title_empty', true);
     } else {
-        if (!empty(Post::findByTitle($title['title']['en']))) {
+        if (!empty(Post::findByTitle($title))) {
             $errors['post_exists'] = t('post_exists', true);
         }
     }
@@ -37,7 +37,11 @@ if (isset($action) && $action === 'save') {
         if ($result['status']) {
 
             $post->id = $result['id'];
-            redirect('/posts/edit/' . $post->id);
+            
+            $_SESSION['alert']['message'] = 'Post added!';
+            $_SESSION['alert']['action'] = 'success';
+           
+            redirect('/posts');
     
         } else {
             echo $result['message'];

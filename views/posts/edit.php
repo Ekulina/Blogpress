@@ -25,7 +25,12 @@ if (isset($action) && $action === 'update') {
 
 
         if ($result['status']) {
+            
+            $_SESSION['alert']['message'] = t('post_edit', true);
+            $_SESSION['alert']['action'] = 'success';
+            
             redirect('/posts');
+            
         } else {
             $message = $result['message'];
         }

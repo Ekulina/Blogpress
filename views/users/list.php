@@ -1,13 +1,5 @@
 <?php
     
-    if (isset($_SESSION["alert"])) {
-        echo "
-        <script>
-            bootbox.alert('" . $_SESSION["alert"] . "');
-        </script>";
-        unset($_SESSION["alert"]);
-    }
-
     $currentPage = $ID;
 
     if ($currentPage == 0) {
@@ -90,7 +82,7 @@
                 <form id="deleteForm" method="post">
                     <input type="hidden" name='action' id='action' value="delete">
                     <input type="hidden" name='id' id='id' value="<?php echo $user->id;?>">
-                    <button class="p-1 bg-red-100 text-red-500 rounded font-bold" type="submit" name="action" value="delete" class="btn btn-danger"><?php t('delete');?></button>
+                    <button class="p-1 bg-red-100 text-red-500 rounded font-bold" type="submit" name="action" value="delete" class="p-1 bg-white text-red-500 rounded font-bold text-center"><?php t('delete');?></button>
                 </form>
             </td>
         </tr>
