@@ -33,24 +33,24 @@ if (isset($action) && $action === 'login') {
                 redirect('/');
             }
         }
-        echo message (t('username_password_mismatch'), true);
+        $errors['username_password_mismatch'] = t('username_password_mismatch', true);
     }
 }
 echo empty($errors)
     ? ""
-    : '<div class="p-1 bg-white text-red-500 rounded font-bold text-center"><ul><li>' . join("</li><li>", $errors) . '</li></ul></div>';
+    : '<div class="p-1 bg-white text-red-500 w-full text-center rounded font-bold text-center"><ul><li>' . join("</li><li>", $errors) . '</li></ul></div>';
 ?>
 <div class= "items-center justify-center flex w-full">
 <div class="bg-red-100 rounded py-16 px-12 m-16 flex flex-col items-center justify-center w-80">
   <form method="post" class="mt-8 mb-4">
     <div class="mb-4">
       <label for="userEmail" class="sr-only">Email address</label>
-      <input class="border-solid border border-gray-400 rounded px-2 py-3"  id="email" name="email" placeholder="Email address" required />
+      <input class="border-solid border border-gray-400 rounded px-2 py-3"  id="email" name="email" placeholder="Email address" />
     </div>
     <div>
       <label for="userEmail" class="sr-only">Password</label>
       <input class="border-solid border border-gray-400 rounded px-2 py-3" type="password" id="password"
-            name="password" placeholder="Password" required />
+            name="password" placeholder="Password" />
     </div>
     <br>
     <button class="bg-gray-500 hover:bg-gray-600 text-white font-bold w-full rounded px-2 py-3" type="submit" name="action" value="login">Sign in</button>

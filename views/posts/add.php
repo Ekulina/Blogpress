@@ -38,7 +38,7 @@ if (isset($action) && $action === 'save') {
 
             $post->id = $result['id'];
             
-            $_SESSION['alert']['message'] = 'Post added!';
+            $_SESSION['alert']['message'] = t('post_add', true);
             $_SESSION['alert']['action'] = 'success';
            
             redirect('/posts');
@@ -57,12 +57,12 @@ echo empty($errors)
 ?>
 <div class= "w-full flex items-center justify-center">
 <div class= "w-72">
-<h1 class= "text-xl pb-4 font-bold">Add Post</h1>
+<h1 class= "text-xl pb-4 font-bold"><?php t('add_post') ?></h1>
 
 <form method="post" enctype="multipart/form-data">
 
     <div class="form-group">
-        <label class="text-xl text-gray-600" for="title">Title</label>
+        <label class="text-xl text-gray-600" for="title"><?php t('title') ?></label>
         <input
                 type="text"
                 class="border-2 border-gray-300 p-2 w-full"
@@ -71,12 +71,12 @@ echo empty($errors)
         >
     </div>
     <div class="form-group">
-        <label class="text-xl text-gray-600" for="title">Body</label>
+        <label class="text-xl text-gray-600" for="title"><?php t('body') ?></label>
         <textarea name="body" class="border-2 border-gray-300 p-2 w-full"  rows="5"></textarea>
     </div>
 
     <br>
-    <button class="bg-gray-500 hover:bg-gray-600 text-white font-bold w-full py-3 pb-6" type="submit" name="action" value="save">Save</button>
+    <button class="bg-gray-500 hover:bg-gray-600 text-white font-bold w-full py-3 pb-6" type="submit" name="action" value="save"><?php t('save') ?></button>
 </form>
 </div>
 </div>

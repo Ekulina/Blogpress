@@ -53,6 +53,8 @@
     $oUser = User::findById ($id);
 
     if (isset($action) && $action === 'delete') {
+        $_SESSION['alert']['message'] = t('user_delete', true);
+        $_SESSION['alert']['action'] = 'success';
         USER::delete($oUser);
         redirect('/users');
     }
@@ -102,7 +104,7 @@
 
         <li class="">
 
-            <a class="<?php echo $currentPage == 1? 'pointer-events-none bg-gray-400' : 'pointer-events-auto bg-gray-700'; ?> block hover:bg-gray-600 text-white border-r border-grey-light px-3 py-2 " href="/users/<?php echo $currentPage - 1; ?>">Previous</a>
+            <a class="<?php echo $currentPage == 1? 'pointer-events-none bg-gray-400' : 'pointer-events-auto bg-gray-700'; ?> block hover:bg-gray-600 text-white border-r border-grey-light px-3 py-2 " href="/users/<?php echo $currentPage - 1; ?>"><?php t('previous') ?></a>
 
         </li>
 
@@ -112,7 +114,7 @@
 
         <?php endfor; ?>
 
-        <li><a class="<?php echo $currentPage + 1 > $maxPages ? 'pointer-events-none bg-gray-400' : 'pointer-events-auto bg-gray-700'; ?> block  hover:bg-gray-600 text-white px-3 py-2" href="/users/<?php echo $currentPage + 1; ?>">Next</a></li>
+        <li><a class="<?php echo $currentPage + 1 > $maxPages ? 'pointer-events-none bg-gray-400' : 'pointer-events-auto bg-gray-700'; ?> block  hover:bg-gray-600 text-white px-3 py-2" href="/users/<?php echo $currentPage + 1; ?>"><?php t('next') ?></a></li>
 
     </ul>
 

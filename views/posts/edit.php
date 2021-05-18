@@ -43,12 +43,12 @@ echo message($message, 'danger');
 ?>
 <div class= "w-full flex items-center justify-center">
 <div class= "w-72">
-<h1 class= "text-xl pb-4 font-bold">Edit Post</h1>
+<h1 class= "text-xl pb-4 font-bold"><?php t('edit_post') ?></h1>
 
 <form method="post" enctype="multipart/form-data">
 
     <div class="form-group">
-        <label class="text-xl text-gray-600" for="title">Title</label>
+        <label class="text-xl text-gray-600" for="title"><?php t('title') ?></label>
         <input
                 type="text"
                 class="border-2 border-gray-300 p-2 w-full"
@@ -57,13 +57,12 @@ echo message($message, 'danger');
         >
     </div>
     <div class="form-group">
-        <label class="text-xl text-gray-600" for="title">Body</label>
+        <label class="text-xl text-gray-600" for="title"><?php t('body') ?></label>
         <textarea name="body" class="border-2 border-gray-300 p-2 w-full"  rows="5"><?php echo $oPost->body; ?></textarea>
     </div>
 
     <br>
-    <button class="p-3 bg-blue-100 text-blue-500 rounded font-bold w-full" type="submit" name="action" value="update">Update</button>
-    <button class="p-3 bg-red-100 text-red-500 rounded w-full font-bold mt-3" type="submit" name="action" value="delete">Delete</button>
+    <button class="p-3 bg-blue-100 text-blue-500 rounded font-bold w-full" type="submit" name="action" value="update"><?php t('edit') ?></button>
 </form>
 </div>
 </div>

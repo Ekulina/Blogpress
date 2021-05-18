@@ -71,9 +71,9 @@ checkAccess($p);
         </div>
         <div class="flex justify-start flex-row mt-4 ml-10">
         <?php if (isLoggedIn()) : ?>
-        <a class="hover:bg-red-200 py-2 px-4 rounded" href="/logout">Logout</a>
+        <a class="hover:bg-red-200 py-2 px-4 rounded" href="/logout"><?php t('logout') ?></a>
         <?php else: ?>
-        <a class="hover:bg-red-200 py-2 px-4 rounded" href="/login">Login</a>
+        <a class="hover:bg-red-200 py-2 px-4 rounded" href="/login"><?php t('login') ?></a>
         <?php endif; ?>
         
 

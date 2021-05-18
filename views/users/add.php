@@ -47,9 +47,10 @@ if (isset($action) && $action === 'save') {
 
         if ($result['status']) {
            $user->id = $result['id']; 
-           $_SESSION['alert']['message'] = t('user_add');
-           $_SESSION['alert']['action'];
-            redirect('/users');
+           $_SESSION['alert']['message'] = t('user_add', true);
+           $_SESSION['alert']['action'] = 'success';
+            
+           redirect('/users');
         } else {
             echo $result['message'];
             echo message(t('problem_creating_user'), 'danger');
@@ -63,7 +64,7 @@ echo empty($errors)
 ?>
 <div class= "w-full flex items-center justify-center">
 <div class= "w-72">
-<h1 class= "text-xl pb-4 font-bold">Add User</h1>
+<h1 class= "text-xl pb-4 font-bold"><?php t('add_user') ?></h1>
 
 <form method="post" enctype="multipart/form-data" novalidate>
 

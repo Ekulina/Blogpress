@@ -83,7 +83,7 @@ echo empty($errors)
 ?>
 <div class= "w-full flex items-center justify-center">
 <div class= "w-72">
-<h1 class= "text-xl pb-4 font-bold">Edit User</h1>
+<h1 class= "text-xl pb-4 font-bold"><?php t('edit_user') ?></h1>
 
 <form method="post"enctype="multipart/form-data">
 
